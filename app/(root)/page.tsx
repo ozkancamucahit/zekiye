@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <header>
-        <UserButton afterSignOutUrl='/'/>
+        
       </header>
       <div>Your home page&apos;s content can go here.</div>
     </>
