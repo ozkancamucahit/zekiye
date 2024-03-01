@@ -5,14 +5,16 @@ import { revalidatePath } from "next/cache";
 import User from "../database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
-import { CreateUserParams, UpdateUserParams } from "@/types/index.d";
+import { CreateUserParams, UpdateUserParams } from "@/types";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
+    console.log(' ==> Connected to DATABASE');
     await connectToDatabase();
-
+    
     const newUser = await User.create(user);
+    console.log(' ==> CREATED NEW USER');
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
