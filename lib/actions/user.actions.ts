@@ -10,8 +10,8 @@ import { CreateUserParams, UpdateUserParams } from "@/types";
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
-    console.log(' ==> Connected to DATABASE');
     await connectToDatabase();
+    console.log(' ==> Connected to DATABASE');
     
     const newUser = await User.create(user);
     console.log(' ==> CREATED NEW USER');
